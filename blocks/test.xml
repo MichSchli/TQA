@@ -1,0 +1,66 @@
+<block>
+    <configuration>
+        <variable name="max_iterations">
+            <default_value>100</default_value>
+        </variable>
+        <variable name="validate_every_n">
+            <default_value>20</default_value>
+        </variable>
+
+        <variable name="data_folder">
+        </variable>
+        <variable name="mode_folder">
+            <train_value>train</train_value>
+            <validate_value>train</validate_value>
+            <test_value>train</test_value>
+        </variable>
+    </configuration>
+    <canvas name="main">
+        <component name="query_reader" type="ListReader">
+            <file_path>$data_folder/$mode_folder/questions.txt</file_path>
+            <separators>\n| </separators>
+            <soft_dimensions>1</soft_dimensions>
+        </component>
+        <component name="evidence_reader" type="ListReader">
+            <file_path>$data_folder/$mode_folder/evidence.txt</file_path>
+            <separators>\n\n|\n| </separators>
+            <soft_dimensions>1,2</soft_dimensions>
+        </component>
+        <component name="answer_reader" type="ListReader">
+            <file_path>$data_folder/$mode_folder/answers.txt</file_path>
+            <separators>\n|:|,|-</separators>
+            <soft_dimensions>1,2</soft_dimensions>
+        </component>
+
+        <component name="gold_start_slicer" type="DataSlicer" language="python">
+            <slice>:,:,:,0</slice>
+        </component>
+        <edge cast="int">
+                <source socket="output">answer_reader</source>
+                <target socket="input">gold_start_slicer</target>
+        </edge>
+
+        <component name="gold_start_index_list" type="IndexConverter" language="tensorflow">
+            <mark socket="output">prediction</mark>
+        </component>
+        <edge>
+                <source socket="output">gold_start_slicer</source>
+                <target socket="input">gold_start_index_list</target>
+        </edge>
+
+        <component name="evidence_elmo" type="ElmoEmbedding" language="tensorflow">
+        </component>
+        <edge>
+                <source socket="output">evidence_reader</source>
+                <target socket="input">evidence_elmo</target>
+        </edge>
+
+        <component name="logit_mlp" type="MultilayerPerceptron" language="tensorflow">
+            <dimensions>1024,1</dimensions>
+        </component>
+        <edge>
+                <source socket="word_embeddings">evidence_elmo</source>
+                <target socket="input">logit_mlp</target>
+        </edge>
+    </canvas>
+</block>
