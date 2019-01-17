@@ -32,22 +32,6 @@
             <soft_dimensions>1,2</soft_dimensions>
         </component>
 
-        <component name="gold_start_slicer" type="DataSlicer" language="python">
-            <slice>:,:,:,0</slice>
-        </component>
-        <edge cast="int">
-                <source socket="output">answer_reader</source>
-                <target socket="input">gold_start_slicer</target>
-        </edge>
-
-        <component name="gold_start_index_list" type="IndexConverter" language="tensorflow">
-            <mark socket="output">prediction</mark>
-        </component>
-        <edge>
-                <source socket="output">gold_start_slicer</source>
-                <target socket="input">gold_start_index_list</target>
-        </edge>
-
         <component name="evidence_elmo" type="ElmoEmbedding" language="tensorflow">
         </component>
         <edge>
@@ -61,6 +45,35 @@
         <edge>
                 <source socket="word_embeddings">evidence_elmo</source>
                 <target socket="input">logit_mlp</target>
+        </edge>
+
+
+        <component name="gold_start_slicer" type="DataSlicer" language="python">
+            <slice>:,:,:,0</slice>
+        </component>
+        <edge cast="int">
+                <source socket="output">answer_reader</source>
+                <target socket="input">gold_start_slicer</target>
+        </edge>
+
+        <component name="gold_start_index_list" type="IndexConverter" language="tensorflow">
+        </component>
+        <edge>
+                <source socket="output">gold_start_slicer</source>
+                <target socket="input">gold_start_index_list</target>
+        </edge>
+
+        <component name="start_labels" type="ScatterLike" language="tensorflow">
+            <mark socket="output">prediction</mark>
+            <constant_value>1</constant_value>
+        </component>
+        <edge>
+                <source socket="output">gold_start_index_list</source>
+                <target socket="indexes">start_labels</target>
+        </edge>
+        <edge>
+                <source socket="output">logit_mlp</source>
+                <target socket="shape">start_labels</target>
         </edge>
     </canvas>
 </block>
