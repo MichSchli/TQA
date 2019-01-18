@@ -1,0 +1,1 @@
+log_score = tf.reduce_logsumexp(logits + VERY_NEGATIVE_NUMBER * (1 - tf.cast(answer_mask, tf.float32)), axis=1)
