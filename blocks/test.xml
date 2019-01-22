@@ -4,7 +4,10 @@
             <default_value>100</default_value>
         </variable>
         <variable name="validate_every_n">
-            <default_value>20</default_value>
+            <default_value>10</default_value>
+        </variable>
+        <variable name="report_loss_every_n">
+            <default_value>1</default_value>
         </variable>
 
         <variable name="data_folder">
@@ -39,12 +42,57 @@
                 <target socket="input">evidence_elmo</target>
         </edge>
 
-        <component name="logit_mlp" type="MultilayerPerceptron" language="tensorflow">
+        <component name="start_logits" type="MultilayerPerceptron" language="tensorflow">
             <dimensions>1024,1</dimensions>
         </component>
         <edge>
                 <source socket="word_embeddings">evidence_elmo</source>
-                <target socket="input">logit_mlp</target>
+                <target socket="input">start_logits</target>
+        </edge>
+
+        <component name="end_logits" type="MultilayerPerceptron" language="tensorflow">
+            <dimensions>1024,1</dimensions>
+        </component>
+        <edge>
+                <source socket="word_embeddings">evidence_elmo</source>
+                <target socket="input">end_logits</target>
+        </edge>
+
+        <component name="start_logit_ext" type="AddDimensions" language="tensorflow">
+            <dim_changes>2:1</dim_changes>
+        </component>
+        <edge>
+                <source socket="output">start_logits</source>
+                <target socket="input">start_logit_ext</target>
+        </edge>
+
+        <component name="end_logit_ext" type="AddDimensions" language="tensorflow">
+            <dim_changes>3:1</dim_changes>
+        </component>
+        <edge>
+                <source socket="output">end_logits</source>
+                <target socket="input">end_logit_ext</target>
+        </edge>
+
+        <component name="score_tensor" type="Add" language="tensorflow">
+            <mark socket="output">prediction</mark>
+        </component>
+        <edge>
+                <source socket="output">start_logit_ext</source>
+                <target socket="left">score_tensor</target>
+        </edge>
+        <edge>
+                <source socket="output">end_logit_ext</source>
+                <target socket="right">score_tensor</target>
+        </edge>
+
+
+        <component name="start_pred_indexes" type="Argmax" language="tensorflow">
+            <reduce_dimensions>1,2</reduce_dimensions>
+        </component>
+        <edge>
+                <source socket="output">start_logits</source>
+                <target socket="input">start_pred_indexes</target>
         </edge>
 
 
@@ -56,6 +104,14 @@
                 <target socket="input">gold_start_slicer</target>
         </edge>
 
+        <component name="gold_end_slicer" type="DataSlicer" language="python">
+            <slice>:,:,:,1</slice>
+        </component>
+        <edge cast="int">
+                <source socket="output">answer_reader</source>
+                <target socket="input">gold_end_slicer</target>
+        </edge>
+
         <component name="gold_start_index_list" type="IndexConverter" language="tensorflow">
         </component>
         <edge>
@@ -63,8 +119,14 @@
                 <target socket="input">gold_start_index_list</target>
         </edge>
 
+        <component name="gold_end_index_list" type="IndexConverter" language="tensorflow">
+        </component>
+        <edge>
+                <source socket="output">gold_end_slicer</source>
+                <target socket="input">gold_end_index_list</target>
+        </edge>
+
         <component name="start_labels" type="ScatterLike" language="tensorflow">
-            <mark socket="output">prediction</mark>
             <constant_value>1</constant_value>
         </component>
         <edge>
@@ -72,8 +134,64 @@
                 <target socket="indexes">start_labels</target>
         </edge>
         <edge>
-                <source socket="output">logit_mlp</source>
+                <source socket="output">start_logits</source>
                 <target socket="shape">start_labels</target>
+        </edge>
+
+        <component name="end_labels" type="ScatterLike" language="tensorflow">
+            <constant_value>1</constant_value>
+        </component>
+        <edge>
+                <source socket="output">gold_end_index_list</source>
+                <target socket="indexes">end_labels</target>
+        </edge>
+        <edge>
+                <source socket="output">end_logits</source>
+                <target socket="shape">end_labels</target>
+        </edge>
+
+        <component name="start_loss" type="LogSumExpLoss" language="tensorflow">
+        </component>
+        <edge>
+                <source socket="output">start_logits</source>
+                <target socket="logits">start_loss</target>
+        </edge>
+        <edge>
+                <source socket="output">start_labels</source>
+                <target socket="labels">start_loss</target>
+        </edge>
+
+        <component name="end_loss" type="LogSumExpLoss" language="tensorflow">
+        </component>
+        <edge>
+                <source socket="output">end_logits</source>
+                <target socket="logits">end_loss</target>
+        </edge>
+        <edge>
+                <source socket="output">end_labels</source>
+                <target socket="labels">end_loss</target>
+        </edge>
+
+        <component name="final_loss" type="Add" language="tensorflow">
+            <mark socket="output">loss</mark>
+        </component>
+        <edge>
+                <source socket="output">start_loss</source>
+                <target socket="left">final_loss</target>
+        </edge>
+        <edge>
+                <source socket="output">end_loss</source>
+                <target socket="right">final_loss</target>
+        </edge>
+
+        <component name="upd" type="AdamUpdater" language="tensorflow">
+            <learning_rate>0.001</learning_rate>
+            <gradient_clip>1.0</gradient_clip>
+            <mark socket="update">update</mark>
+        </component>
+        <edge>
+                <source socket="output">final_loss</source>
+                <target socket="loss">upd</target>
         </edge>
     </canvas>
 </block>

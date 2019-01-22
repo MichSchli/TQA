@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29615eef-a92b-40c1-81db-0eab582f7917" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bidaf_loss.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Mindblocks-0.0.1-py3-none-any.whl" afterPath="$PROJECT_DIR$/lib/Mindblocks-0.0.1-py3-none-any.whl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pipfile.lock" afterPath="$PROJECT_DIR$/Pipfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blocks/test.xml" afterPath="$PROJECT_DIR$/blocks/test.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/train.py" afterPath="$PROJECT_DIR$/train.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update_mindblocks.sh" afterPath="$PROJECT_DIR$/update_mindblocks.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +25,8 @@
       <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+            <state relative-caret-position="315">
+              <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -52,28 +57,28 @@
       <file leaf-file-name="test.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blocks/test.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="67" column="13" lean-forward="false" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="21" />
+            <state relative-caret-position="388">
+              <caret line="78" column="20" lean-forward="true" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scatter_like.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/vectors/scatter_like.py">
+      <file leaf-file-name="soft_tensor_helper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/helpers/soft_tensors/soft_tensor_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="29" selection-end-column="34" />
+            <state relative-caret-position="197">
+              <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bidaf_loss.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bidaf_loss.txt">
+      <file leaf-file-name="soft_tensor_value_model.py" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/model/value_type/soft_tensor/soft_tensor_value_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="104" lean-forward="false" selection-start-line="0" selection-start-column="104" selection-end-line="0" selection-end-column="104" />
+            <state relative-caret-position="552">
+              <caret line="182" column="31" lean-forward="false" selection-start-line="182" selection-start-column="31" selection-end-line="182" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -84,6 +89,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="execution_graph_model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/model/execution_graph/execution_graph_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -107,16 +122,20 @@
         <option value="$PROJECT_DIR$/data/toy/questions" />
         <option value="$PROJECT_DIR$/data/toy/answers" />
         <option value="$PROJECT_DIR$/data/toy/evidence.txt" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/tensorflow_hub/tensor_info.py" />
         <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/elmo/elmo_embedding.py" />
         <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/tensorflow_hub/module.py" />
         <option value="$PROJECT_DIR$/data/toy/train/answers.txt" />
-        <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/model/value_type/soft_tensor/soft_tensor_tf_output_manager.py" />
         <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/vectors/index_converter.py" />
-        <option value="$PROJECT_DIR$/blocks/test.xml" />
         <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/vectors/scatter_like.py" />
         <option value="$PROJECT_DIR$/bidaf_loss.txt" />
+        <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/loss/log_sum_exp_loss.py" />
+        <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/model/value_type/soft_tensor/soft_tensor_tf_output_manager.py" />
+        <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/arithmetics/argmax.py" />
+        <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/helpers/soft_tensors/soft_tensor_helper.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/blocks/test.xml" />
+        <option value="$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/model/value_type/soft_tensor/soft_tensor_value_model.py" />
       </list>
     </option>
   </component>
@@ -391,25 +410,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24972677" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -420,74 +439,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/toy/train/evidence.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/toy/train/questions.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/toy/train/answers.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blocks/test.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/toy/train/evidence.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/toy/train/questions.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/toy/train/answers.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -630,20 +581,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/tensorflow_hub/tensor_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2145">
-          <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/tensorflow_hub/module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3480">
-          <caret line="241" column="0" lean-forward="false" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/tensorflow_hub/tensor_info.py" />
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/tensorflow_hub/module.py" />
     <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/elmo/elmo_embedding.py" />
     <entry file="file://$PROJECT_DIR$/data/toy/train/evidence.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -738,35 +677,61 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/elmo/elmo_embedding.py" />
-    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/tensorflow_hub/module.py">
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/tensorflow_hub/module.py" />
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/tensorflow_hub/tensor_info.py" />
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/vectors/index_converter.py" />
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/vectors/scatter_like.py" />
+    <entry file="file://$PROJECT_DIR$/bidaf_loss.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="238" column="0" lean-forward="false" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/tensorflow_hub/tensor_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/loss/log_sum_exp_loss.py" />
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/model/value_type/soft_tensor/soft_tensor_type_model.py" />
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/model/value_type/soft_tensor/soft_tensor_tf_output_manager.py" />
     <entry file="file://$PROJECT_DIR$/data/toy/train/questions.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/arithmetics/argmax.py" />
+    <entry file="file://$PROJECT_DIR$/data/toy/train/answers.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/controller/ml_helper/ml_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -778,36 +743,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/model/value_type/soft_tensor/soft_tensor_tf_output_manager.py" />
-    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/vectors/index_converter.py" />
     <entry file="file://$PROJECT_DIR$/blocks/test.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="13" lean-forward="false" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="21" />
+        <state relative-caret-position="388">
+          <caret line="78" column="20" lean-forward="true" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/toy/train/answers.txt">
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/helpers/soft_tensors/soft_tensor_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+        <state relative-caret-position="197">
+          <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/default_component_types/vectors/scatter_like.py">
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/model/execution_graph/execution_graph_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="29" selection-end-column="34" />
+        <state relative-caret-position="197">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bidaf_loss.txt">
+    <entry file="file://$USER_HOME$/.virtualenvs/Bidaf-0YCdAG_E/lib/python3.5/site-packages/Mindblocks/model/value_type/soft_tensor/soft_tensor_value_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="104" lean-forward="false" selection-start-line="0" selection-start-column="104" selection-end-line="0" selection-end-column="104" />
+        <state relative-caret-position="552">
+          <caret line="182" column="31" lean-forward="false" selection-start-line="182" selection-start-column="31" selection-end-line="182" selection-end-column="31" />
           <folding />
         </state>
       </provider>
