@@ -25,7 +25,7 @@
             <soft_dimensions>1</soft_dimensions>
         </component>
         <component name="evidence_reader" type="ListReader">
-            <file_path>$data_folder/$mode_folder/evidence.txt</file_path>
+            <file_path>$data_folder/$mode_folder/evidence_small.txt</file_path>
             <separators>\n\n|\n| </separators>
             <soft_dimensions>1,2</soft_dimensions>
         </component>
