@@ -124,7 +124,7 @@
         },
         "mindblocks": {
             "hashes": [
-                "sha256:5dd03516de2d212e940d316f28ecc9719c45514fbe222eed01f147ef49f23412"
+                "sha256:2ec5b9a0d6820b70df22cfaceec21e815fb1bcfaf17af5994ef820b6417e1fed"
             ],
             "path": "./lib/Mindblocks-0.0.1-py3-none-any.whl",
             "version": "==0.0.1"

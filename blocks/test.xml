@@ -25,7 +25,7 @@
             <soft_dimensions>1</soft_dimensions>
         </component>
         <component name="evidence_reader" type="ListReader">
-            <file_path>$data_folder/$mode_folder/evidence_small.txt</file_path>
+            <file_path>$data_folder/$mode_folder/evidence.txt</file_path>
             <separators>\n\n|\n| </separators>
             <soft_dimensions>1,2</soft_dimensions>
         </component>
@@ -58,32 +58,55 @@
                 <target socket="input">end_logits</target>
         </edge>
 
-        <component name="start_logit_ext" type="AddDimensions" language="tensorflow">
-            <dim_changes>2:1</dim_changes>
+        <component name="start_sigmoid" type="Softmax" language="tensorflow">
         </component>
         <edge>
                 <source socket="output">start_logits</source>
-                <target socket="input">start_logit_ext</target>
+                <target socket="input">start_sigmoid</target>
         </edge>
 
-        <component name="end_logit_ext" type="AddDimensions" language="tensorflow">
+        <component name="start_prob_ext" type="AddDimensions" language="tensorflow">
             <dim_changes>3:1</dim_changes>
         </component>
         <edge>
+                <source socket="output">start_sigmoid</source>
+                <target socket="input">start_prob_ext</target>
+        </edge>
+
+        <component name="end_sigmoid" type="Softmax" language="tensorflow">
+        </component>
+        <edge>
                 <source socket="output">end_logits</source>
-                <target socket="input">end_logit_ext</target>
+                <target socket="input">end_sigmoid</target>
+        </edge>
+
+        <component name="end_prob_ext" type="AddDimensions" language="tensorflow">
+            <dim_changes>2:1</dim_changes>
+        </component>
+        <edge>
+                <source socket="output">end_sigmoid</source>
+                <target socket="input">end_prob_ext</target>
         </edge>
 
         <component name="score_tensor" type="Add" language="tensorflow">
-            <mark socket="output">prediction</mark>
         </component>
         <edge>
-                <source socket="output">start_logit_ext</source>
+                <source socket="output">start_prob_ext</source>
                 <target socket="left">score_tensor</target>
         </edge>
         <edge>
-                <source socket="output">end_logit_ext</source>
+                <source socket="output">end_prob_ext</source>
                 <target socket="right">score_tensor</target>
+        </edge>
+
+        <component name="span_logic_band" type="MatrixBand" language="tensorflow">
+            <row_band_end>0</row_band_end>
+            <column_band_end>3</column_band_end>
+            <mark socket="output">prediction</mark>
+        </component>
+        <edge>
+                <source socket="output">score_tensor</source>
+                <target socket="input">span_logic_band</target>
         </edge>
 
 
