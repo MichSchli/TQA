@@ -17,6 +17,6 @@ interface.set_variable("data_folder", data_filepath)
 interface.initialize()
 
 print("====================")
-#interface.train(100)
+interface.train(40)
 pred = interface.predict()
 print(pred)

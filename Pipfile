@@ -11,6 +11,8 @@ tensorflow = "*"
 tensorflow-hub = "*"
 tensorflow-probability = "*"
 numpy = "*"
+tqdm = "*"
+nltk = "*"
 
 [requires]
 python_version = "3.5"

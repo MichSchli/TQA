@@ -1,7 +1,7 @@
 <block>
     <configuration>
         <variable name="max_iterations">
-            <default_value>100</default_value>
+            <default_value>1000</default_value>
         </variable>
         <variable name="validate_every_n">
             <default_value>10</default_value>
@@ -17,22 +17,28 @@
             <validate_value>train</validate_value>
             <test_value>train</test_value>
         </variable>
+        <variable name="batch_size">
+            <default_value>2</default_value>
+        </variable>
     </configuration>
     <canvas name="main">
         <component name="query_reader" type="ListReader">
             <file_path>$data_folder/$mode_folder/questions.txt</file_path>
             <separators>\n| </separators>
             <soft_dimensions>1</soft_dimensions>
+            <batch_size>$batch_size</batch_size>
         </component>
         <component name="evidence_reader" type="ListReader">
             <file_path>$data_folder/$mode_folder/evidence.txt</file_path>
             <separators>\n\n|\n| </separators>
             <soft_dimensions>1,2</soft_dimensions>
+            <batch_size>$batch_size</batch_size>
         </component>
         <component name="answer_reader" type="ListReader">
             <file_path>$data_folder/$mode_folder/answers.txt</file_path>
             <separators>\n|:|,|-</separators>
             <soft_dimensions>1,2</soft_dimensions>
+            <batch_size>$batch_size</batch_size>
         </component>
 
         <component name="evidence_elmo" type="ElmoEmbedding" language="tensorflow">
@@ -102,22 +108,20 @@
         <component name="span_logic_band" type="MatrixBand" language="tensorflow">
             <row_band_end>0</row_band_end>
             <column_band_end>3</column_band_end>
-            <mark socket="output">prediction</mark>
         </component>
         <edge>
                 <source socket="output">score_tensor</source>
                 <target socket="input">span_logic_band</target>
         </edge>
 
-
-        <component name="start_pred_indexes" type="Argmax" language="tensorflow">
-            <reduce_dimensions>1,2</reduce_dimensions>
+        <component name="pred_indexes" type="Argmax" language="tensorflow">
+            <reduce_dimensions>1,2,3</reduce_dimensions>
+            <mark socket="output">prediction</mark>
         </component>
         <edge>
-                <source socket="output">start_logits</source>
-                <target socket="input">start_pred_indexes</target>
+                <source socket="output">span_logic_band</source>
+                <target socket="input">pred_indexes</target>
         </edge>
-
 
         <component name="gold_start_slicer" type="DataSlicer" language="python">
             <slice>:,:,:,0</slice>
