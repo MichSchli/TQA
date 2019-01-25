@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Triviqa
+data/triviaqa*
+
 # Distribution / packaging
 .Python
 build/
