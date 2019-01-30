@@ -78,7 +78,7 @@ for answers in tqdm.tqdm(list(open(args.answer_file, 'r'))):
             if first:
                 first = False
             else:
-                print("|", end="")
+                print(";", end="")
             print(",".join(span), end="")
             answered = True
 

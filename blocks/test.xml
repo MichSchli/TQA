@@ -18,7 +18,7 @@
             <test_value>train</test_value>
         </variable>
         <variable name="batch_size">
-            <default_value>2</default_value>
+            <default_value>3</default_value>
         </variable>
     </configuration>
     <canvas name="main">
@@ -35,9 +35,9 @@
             <batch_size>$batch_size</batch_size>
         </component>
         <component name="answer_reader" type="ListReader">
-            <file_path>$data_folder/$mode_folder/answers.txt</file_path>
-            <separators>\n|:|,|-</separators>
-            <soft_dimensions>1,2</soft_dimensions>
+            <file_path>$data_folder/$mode_folder/spans.txt</file_path>
+            <separators>\n|;|,</separators>
+            <soft_dimensions>1</soft_dimensions>
             <batch_size>$batch_size</batch_size>
         </component>
 
@@ -123,8 +123,16 @@
                 <target socket="input">pred_indexes</target>
         </edge>
 
+        <component name="gold_doc_index_slicer" type="DataSlicer" language="python">
+            <slice>:,:,0:1</slice>
+        </component>
+        <edge cast="int">
+                <source socket="output">answer_reader</source>
+                <target socket="input">gold_doc_index_slicer</target>
+        </edge>
+
         <component name="gold_start_slicer" type="DataSlicer" language="python">
-            <slice>:,:,:,0</slice>
+            <slice>:,:,1:2</slice>
         </component>
         <edge cast="int">
                 <source socket="output">answer_reader</source>
@@ -132,24 +140,50 @@
         </edge>
 
         <component name="gold_end_slicer" type="DataSlicer" language="python">
-            <slice>:,:,:,1</slice>
+            <slice>:,:,2:</slice>
         </component>
         <edge cast="int">
                 <source socket="output">answer_reader</source>
                 <target socket="input">gold_end_slicer</target>
         </edge>
 
-        <component name="gold_start_index_list" type="IndexConverter" language="tensorflow">
+        <component name="gold_start_doc_index" type="Concat" language="tensorflow">
+            <axis>2</axis>
         </component>
         <edge>
+                <source socket="output">gold_doc_index_slicer</source>
+                <target socket="left">gold_start_doc_index</target>
+        </edge>
+        <edge>
                 <source socket="output">gold_start_slicer</source>
+                <target socket="right">gold_start_doc_index</target>
+        </edge>
+
+        <component name="gold_end_doc_index" type="Concat" language="tensorflow">
+            <axis>2</axis>
+        </component>
+        <edge>
+                <source socket="output">gold_doc_index_slicer</source>
+                <target socket="left">gold_end_doc_index</target>
+        </edge>
+        <edge>
+                <source socket="output">gold_end_slicer</source>
+                <target socket="right">gold_end_doc_index</target>
+        </edge>
+
+        <component name="gold_start_index_list" type="IndexConverter" language="tensorflow">
+            <keep_last_dimension>True</keep_last_dimension>
+        </component>
+        <edge>
+                <source socket="output">gold_start_doc_index</source>
                 <target socket="input">gold_start_index_list</target>
         </edge>
 
         <component name="gold_end_index_list" type="IndexConverter" language="tensorflow">
+            <keep_last_dimension>True</keep_last_dimension>
         </component>
         <edge>
-                <source socket="output">gold_end_slicer</source>
+                <source socket="output">gold_end_doc_index</source>
                 <target socket="input">gold_end_index_list</target>
         </edge>
 

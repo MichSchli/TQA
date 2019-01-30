@@ -25,7 +25,7 @@ for span in tqdm.tqdm(span_lines):
             evidence_lines_for_question.append(next_line.split(" "))
             next_line = document_lines.readline().strip()
 
-    span_parts = span.strip().split("|")
+    span_parts = span.strip().split(";")
     has_printed = False
     for span_part in span_parts:
         if not span_part:
