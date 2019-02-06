@@ -18,7 +18,7 @@
             <test_value>train</test_value>
         </variable>
         <variable name="batch_size">
-            <default_value>3</default_value>
+            <default_value>1</default_value>
         </variable>
     </configuration>
     <canvas name="main">
